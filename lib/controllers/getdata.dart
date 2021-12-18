@@ -127,7 +127,7 @@ class FearIndexMonitoringData {
     // List<dynamic> data = [];
     if (response.statusCode == 200) {
       final decodedData = jsonDecode(response.body);
-      // print(decodedData);
+      print(decodedData);
       List<dynamic> data = decodedData['ITVQuoteResult']['ITVQuote'];
 
       List<MonitoringPriceModel> result = [];

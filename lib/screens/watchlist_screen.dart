@@ -1,6 +1,4 @@
 import 'package:dipbuying/models/constants.dart';
-import 'package:dipbuying/screens/database_screen.dart';
-import 'package:dipbuying/screens/monitoring_screen.dart';
 import 'package:dipbuying/screens/splashscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -20,7 +18,6 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
       setState(() {
         isLoading = true;
       });
-
       setState(() {
         databaseData.forEach((element) {
           Widget newWidget = WatchListTickerData(
@@ -85,7 +82,7 @@ class _WatchlistScreenState extends State<WatchlistScreen> {
         ),
         color: Colors.black38,
         onPressed: () {
-          '1';
+          Navigator.pushNamed(context, 'tickerScreen');
         },
       ),
     );

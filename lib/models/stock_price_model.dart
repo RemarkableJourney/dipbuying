@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class StockPriceModel {
   final double movAvg10dRate;
   final double movAvg50dRate;
@@ -36,3 +38,5 @@ class MonitoringPriceModel {
     required this.change_pct,
   });
 }
+
+class TickerPageModle {}

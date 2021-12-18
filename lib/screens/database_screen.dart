@@ -1,6 +1,4 @@
 import 'package:dipbuying/models/constants.dart';
-import 'package:dipbuying/models/stock_price_model.dart';
-import 'package:dipbuying/screens/monitoring_screen.dart';
 import 'package:dipbuying/screens/splashscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -20,9 +18,6 @@ class _DatabaseScreenState extends State<DatabaseScreen> {
       setState(() {
         isLoading = true;
       });
-      // databaseData = await StockDatabaseData().getDatabasePrice();
-
-      // data = [StockPriceModel, StockPriceModel]
       setState(() {
         databaseData.forEach((element) {
           Widget newWidget = databaseTickerData(
@@ -48,7 +43,6 @@ class _DatabaseScreenState extends State<DatabaseScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData();
   }

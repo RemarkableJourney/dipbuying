@@ -1,11 +1,7 @@
-import 'package:dipbuying/controllers/getdata.dart';
 import 'package:dipbuying/models/constants.dart';
-import 'package:dipbuying/models/stock_price_model.dart';
 import 'package:dipbuying/screens/splashscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-
-List<StockPriceModel> databaseData = [];
 
 class MonitoringScreen extends StatefulWidget {
   const MonitoringScreen({
@@ -17,11 +13,6 @@ class MonitoringScreen extends StatefulWidget {
 }
 
 class _MonitoringScreenState extends State<MonitoringScreen> {
-  List<MonitoringPriceModel> stockMarketIndexMonitoringData = [];
-  List<MonitoringPriceModel> interestRateMonitoringData = [];
-  List<MonitoringPriceModel> fearIndexMonitoringData = [];
-  double exchangeRateMonitoringData = 0;
-
   bool isLoading = false;
 
   final List<Widget> stockMarketIndexMonitoringTickers = <Widget>[];
@@ -33,15 +24,6 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
       setState(() {
         isLoading = true;
       });
-      stockMarketIndexMonitoringData =
-          await StoctMarketIndexMonitoringData().getMonitoringPrice();
-      interestRateMonitoringData =
-          await InterestRateMonitoringData().getMonitoringPrice();
-      exchangeRateMonitoringData =
-          await ExchangeRateMonitoringData().getMonitoringPrice();
-      fearIndexMonitoringData =
-          await FearIndexMonitoringData().getMonitoringPrice();
-      databaseData = await StockDatabaseData().getDatabasePrice();
 
       setState(() {
         for (int i = 0; i < 3; i++) {
@@ -89,7 +71,6 @@ class _MonitoringScreenState extends State<MonitoringScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
-        // title: SizedBox(width: 40, child: Image.asset('images/flash.png')),
         title: const Text(
           'Dip Buying',
           style: TextStyle(color: Colors.white),

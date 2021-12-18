@@ -1,12 +1,13 @@
+import 'package:dipbuying/screens/tickerpage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:dipbuying/screens/mainscreen.dart';
 import 'screens/splashscreen.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-      overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+  //     overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
   runApp(const MyApp());
 }
 
@@ -25,6 +26,11 @@ class MyApp extends StatelessWidget {
           } else {
             // Loading is done, return the app:
             return MaterialApp(
+              initialRoute: 'main',
+              routes: {
+                'main': (context) => MainScreen(),
+                'tickerScreen': (context) => TickerPage(),
+              },
               home: MainScreen(),
             );
           }
